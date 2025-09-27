@@ -1,0 +1,105 @@
+:root {
+  --bg: #000;
+  --dot: 255, 255, 255;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  font-family: "Noto Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* Full-bleed canvas */
+#bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+/* Accessibility helper for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 1px, 1px);
+  white-space: nowrap; border: 0;
+}
+
+#gui {
+  position: fixed;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 480px);
+  padding: 26px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.42), inset 0 1px 0 rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px) saturate(1.05);
+  -webkit-backdrop-filter: blur(8px);
+  text-align: center;
+}
+
+#gui .title {
+  margin: 2px 0 18px;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+
+#gui .title .strike {
+  /* removed decorative blurred strike for cleaner look */
+  display: none;
+}
+
+#gui .title::after {
+  /* removed top blur/line accent for a cleaner title */
+  content: none;
+}
+
+#gui .note {
+  margin: 14px 0 2px;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.82);
+}
+
+#gui .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: transform 140ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+#gui .btn:hover, #gui .btn:focus-visible {
+  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+  box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+  transform: translateY(-2px);
+}
+
+#gui .btn:active { transform: translateY(1px); }
